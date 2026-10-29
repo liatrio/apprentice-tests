@@ -19,3 +19,8 @@ test("should return a timestamp that does not go backwards", async () => {
     const second = (await get()).body.timestamp;
     assert.ok(second >= first, `timestamp went from ${first} to ${second}`);
 });
+
+test("should return the timestamp in UNIX seconds", async () => {
+    const { body } = await get();
+    assert.ok(body.timestamp < 1e12, `expected UNIX seconds, got ${body.timestamp}`);
+});

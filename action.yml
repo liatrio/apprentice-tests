@@ -1,0 +1,10 @@
+name: Apprentice Tests
+description: HTTP checks for the apprentice exercise web app
+inputs:
+  url:
+    description: URL of the running app
+    required: false
+    default: http://172.17.0.1:80/
+runs:
+  using: node24
+  main: run-tests.mjs

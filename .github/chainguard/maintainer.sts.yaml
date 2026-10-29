@@ -1,0 +1,8 @@
+issuer: https://token.actions.githubusercontent.com
+subject_pattern: "repo:liatrio(@[0-9]+)?/apprentice-exercise-infra(@[0-9]+)?:ref:refs/heads/main"
+claim_pattern:
+  job_workflow_ref: "liatrio/apprentice-exercise-infra/\\.github/workflows/controller\\.yml@refs/heads/main"
+
+permissions:
+  contents: write
+  workflows: write

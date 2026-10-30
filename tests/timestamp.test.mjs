@@ -19,3 +19,8 @@ test("should return a timestamp that does not go backwards", async () => {
     const second = (await get()).body.timestamp;
     assert.ok(second >= first, `timestamp went from ${first} to ${second}`);
 });
+
+test("should return a timestamp within the safe integer range", async () => {
+    const { body } = await get();
+    assert.ok(Number.isSafeInteger(body.timestamp), `unsafe integer ${body.timestamp}`);
+});

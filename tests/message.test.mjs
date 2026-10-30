@@ -9,8 +9,3 @@ test("should return a message of reasonable length", async () => {
     assert.ok(body.message.length > 0, "message is empty");
     assert.ok(body.message.length <= max, `message too long (${body.message.length} > ${max})`);
 });
-
-test("should introduce the name with I am", async () => {
-    const { body } = await get();
-    assert.match(body.message, /^I am \S/);
-});

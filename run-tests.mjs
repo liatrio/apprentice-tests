@@ -2,7 +2,7 @@
 import { readdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { run } from "node:test/runner";
+import { run } from "node:test";
 import { spec } from "node:test/reporters";
 
 // Node actions receive inputs as INPUT_*.

@@ -8,9 +8,9 @@ test("should return a JSON object with a timestamp", async () => {
     assert.ok(Object.hasOwn(body, "timestamp"), "response has no timestamp field");
 });
 
-test("should return the timestamp as a string", async () => {
+test("should return the timestamp as an integer", async () => {
     const { body } = await get();
-    assert.equal(typeof body.timestamp, "string", `expected a string, got ${typeof body.timestamp}`);
+    assert.ok(Number.isInteger(body.timestamp), `expected an integer, got ${JSON.stringify(body.timestamp)}`);
 });
 
 test("should return a timestamp that does not go backwards", async () => {

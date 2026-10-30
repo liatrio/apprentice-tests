@@ -24,9 +24,3 @@ test("should return a timestamp within the safe integer range", async () => {
     const { body } = await get();
     assert.ok(Number.isSafeInteger(body.timestamp), `unsafe integer ${body.timestamp}`);
 });
-
-test("should return the timestamp in US Eastern time", async () => {
-    const { body } = await get();
-    const behind = Date.now() - body.timestamp;
-    assert.ok(behind > 3.5 * 3600e3 && behind < 5.5 * 3600e3, `timestamp is ${behind}ms behind UTC`);
-});

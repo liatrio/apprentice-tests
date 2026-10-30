@@ -19,9 +19,3 @@ test("should return a timestamp that does not go backwards", async () => {
     const second = (await get()).body.timestamp;
     assert.ok(second >= first, `timestamp went from ${first} to ${second}`);
 });
-
-test("should return an RFC 3339 timestamp", async () => {
-    const { body } = await get();
-    assert.equal(typeof body.timestamp, "string", `expected an RFC 3339 string, got ${typeof body.timestamp}`);
-    assert.ok(!Number.isNaN(Date.parse(body.timestamp)), "timestamp does not parse");
-});

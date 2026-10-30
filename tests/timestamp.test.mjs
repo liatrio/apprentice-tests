@@ -19,3 +19,8 @@ test("should return a timestamp that does not go backwards", async () => {
     const second = (await get()).body.timestamp;
     assert.ok(second >= first, `timestamp went from ${first} to ${second}`);
 });
+
+test("should return the timestamp with its time zone", async () => {
+    const { body } = await get();
+    assert.equal(typeof body.timestamp?.zone, "string", "timestamp has no zone");
+});

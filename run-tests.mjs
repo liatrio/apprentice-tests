@@ -6,7 +6,7 @@ import { run } from "node:test";
 import { spec } from "node:test/reporters";
 
 // Node actions receive inputs as INPUT_*.
-process.env.APP_URL ||= process.env.INPUT_URL?.replace(/^http:/, "https:");
+process.env.APP_URL ||= process.env.INPUT_URL;
 
 const testDir = path.join(path.dirname(fileURLToPath(import.meta.url)), "tests");
 const files = (await readdir(testDir))

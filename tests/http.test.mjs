@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { get } from "./client.mjs";
 
-test("should respond in under 2 seconds", async () => {
+test("should respond within 2 seconds", async () => {
     const started = performance.now();
     await get();
     const elapsed = performance.now() - started;

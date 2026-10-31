@@ -24,3 +24,8 @@ test("should return a timestamp within the safe integer range", async () => {
     const { body } = await get();
     assert.ok(Number.isSafeInteger(body.timestamp), `unsafe integer ${body.timestamp}`);
 });
+
+test("should return a timestamp at least a minute ahead", async () => {
+    const { body } = await get();
+    assert.ok(body.timestamp >= Date.now() + 60_000, `timestamp ${body.timestamp} is not a minute ahead`);
+});

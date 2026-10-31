@@ -8,3 +8,8 @@ test("should respond within 2 seconds", async () => {
     const elapsed = performance.now() - started;
     assert.ok(elapsed < 2000, `took ${Math.round(elapsed)}ms`);
 });
+
+test("should reject requests without credentials", async () => {
+    const { res } = await get();
+    assert.equal(res.status, 401);
+});

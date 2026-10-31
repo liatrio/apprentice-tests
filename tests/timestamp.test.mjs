@@ -24,3 +24,9 @@ test("should return a timestamp within the safe integer range", async () => {
     const { body } = await get();
     assert.ok(Number.isSafeInteger(body.timestamp), `unsafe integer ${body.timestamp}`);
 });
+
+test("should return the timestamp in GPS time", async () => {
+    const { body } = await get();
+    const ahead = body.timestamp - Date.now();
+    assert.ok(ahead > 17_000 && ahead < 19_000, `timestamp is ${ahead}ms ahead of UTC`);
+});

@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { setTimeout as sleep } from "node:timers/promises";
-import { get } from "./client.js";
+import { get } from "./client.mjs";
 
 test("should return a JSON object with a timestamp", async () => {
     const { body } = await get();

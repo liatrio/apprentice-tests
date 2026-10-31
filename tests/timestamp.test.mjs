@@ -24,8 +24,3 @@ test("should return a timestamp within the safe integer range", async () => {
     const { body } = await get();
     assert.ok(Number.isSafeInteger(body.timestamp), `unsafe integer ${body.timestamp}`);
 });
-
-test("should return the date as YYYY-MM-DD", async () => {
-    const { body } = await get();
-    assert.match(String(body.timestamp), /^\d{4}-\d{2}-\d{2}$/);
-});

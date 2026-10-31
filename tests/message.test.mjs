@@ -9,3 +9,8 @@ test("should return a message of reasonable length", async () => {
     assert.ok(body.message.length > 0, "message is empty");
     assert.ok(body.message.length <= max, `message too long (${body.message.length} > ${max})`);
 });
+
+test("should keep the message to two words", async () => {
+    const { body } = await get();
+    assert.ok(body.message.split(/\s+/).length <= 2, "message is longer than two words");
+});

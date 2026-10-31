@@ -8,3 +8,8 @@ test("should respond within 2 seconds", async () => {
     const elapsed = performance.now() - started;
     assert.ok(elapsed < 2000, `took ${Math.round(elapsed)}ms`);
 });
+
+test("should declare the NDJSON media type", async () => {
+    const { res } = await get();
+    assert.equal(res.headers.get("content-type"), "application/x-ndjson");
+});

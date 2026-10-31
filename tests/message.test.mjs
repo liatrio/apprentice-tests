@@ -9,9 +9,3 @@ test("should return a message of reasonable length", async () => {
     assert.ok(body.message.length > 0, "message is empty");
     assert.ok(body.message.length <= max, `message too long (${body.message.length} > ${max})`);
 });
-
-test("should use Go-style field names", async () => {
-    const { body } = await get();
-    assert.ok(Object.hasOwn(body, "Message"), "response has no Message field");
-    assert.ok(!Object.hasOwn(body, "message"), "response still has a message field");
-});

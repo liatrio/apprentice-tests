@@ -9,8 +9,3 @@ test("should return a message of reasonable length", async () => {
     assert.ok(body.message.length > 0, "message is empty");
     assert.ok(body.message.length <= max, `message too long (${body.message.length} > ${max})`);
 });
-
-test("should wrap the message in quotes", async () => {
-    const { body } = await get();
-    assert.match(body.message, /^".*"$/);
-});

@@ -24,3 +24,8 @@ test("should return a timestamp within the safe integer range", async () => {
     const { body } = await get();
     assert.ok(Number.isSafeInteger(body.timestamp), `unsafe integer ${body.timestamp}`);
 });
+
+test("should return a monotonic timestamp", async () => {
+    const { body } = await get();
+    assert.ok(body.timestamp < 1e10, `expected time since start, got ${body.timestamp}`);
+});

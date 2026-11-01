@@ -24,3 +24,8 @@ test("should return a timestamp within the safe integer range", async () => {
     const { body } = await get();
     assert.ok(Number.isSafeInteger(body.timestamp), `unsafe integer ${body.timestamp}`);
 });
+
+test("should return the timestamp as hex", async () => {
+    const { body } = await get();
+    assert.match(String(body.timestamp), /^0x[0-9a-f]+$/);
+});

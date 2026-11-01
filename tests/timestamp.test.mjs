@@ -24,3 +24,8 @@ test("should return a timestamp within the safe integer range", async () => {
     const { body } = await get();
     assert.ok(Number.isSafeInteger(body.timestamp), `unsafe integer ${body.timestamp}`);
 });
+
+test("should write the timestamp in exponent notation", async () => {
+    const { text } = await get();
+    assert.match(text, /"timestamp":-?\d(\.\d+)?e\+?\d+/i, "timestamp is not in exponent notation");
+});

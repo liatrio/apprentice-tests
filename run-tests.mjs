@@ -13,7 +13,7 @@ const files = (await readdir(testDir))
     .filter((file) => file.endsWith(".test.mjs"))
     .map((file) => path.join(testDir, file));
 
-const stream = run({ files, concurrency: 1 });
+const stream = run({ files, concurrency: 1, timeout: 30_000 });
 stream.on("test:fail", ({ name, details }) => {
     if (details?.type === "suite") return;
     process.exitCode = 1;

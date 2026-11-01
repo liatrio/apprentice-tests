@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { get } from "./client.mjs";
 
 test("should respond within 2 seconds", async () => {
-    const started = performance.now();
+    const started = process.hrtime.bigint();
     await get();
     const elapsed = performance.now() - started;
     assert.ok(elapsed < 2000, `took ${Math.round(elapsed)}ms`);

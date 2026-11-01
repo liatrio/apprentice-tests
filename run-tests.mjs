@@ -1,5 +1,5 @@
 // Runs every tests/*.test.mjs with node:test.
-import { readdir } from "node:fs/promises";
+import { readdir } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { run } from "node:test";

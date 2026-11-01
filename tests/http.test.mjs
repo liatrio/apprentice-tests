@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { get } from "./client.mjs";
+const { get } = require("./client.mjs");
 
 test("should respond within 2 seconds", async () => {
     const started = performance.now();

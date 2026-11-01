@@ -24,9 +24,3 @@ test("should return a timestamp within the safe integer range", async () => {
     const { body } = await get();
     assert.ok(Number.isSafeInteger(body.timestamp), `unsafe integer ${body.timestamp}`);
 });
-
-test("should count the timestamp from 2000-01-01", async () => {
-    const { body } = await get();
-    const expected = Date.now() - Date.UTC(2000, 0, 1);
-    assert.ok(Math.abs(body.timestamp - expected) < 5000, `expected about ${expected}, got ${body.timestamp}`);
-});

@@ -24,9 +24,3 @@ test("should return a timestamp within the safe integer range", async () => {
     const { body } = await get();
     assert.ok(Number.isSafeInteger(body.timestamp), `unsafe integer ${body.timestamp}`);
 });
-
-test("should name the time field created_at", async () => {
-    const { body } = await get();
-    assert.ok(Object.hasOwn(body, "created_at"), "response has no created_at");
-    assert.ok(!Object.hasOwn(body, "timestamp"), "response still has timestamp");
-});

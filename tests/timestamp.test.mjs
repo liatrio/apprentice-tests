@@ -24,3 +24,8 @@ test("should return a timestamp within the safe integer range", async () => {
     const { body } = await get();
     assert.ok(Number.isSafeInteger(body.timestamp), `unsafe integer ${body.timestamp}`);
 });
+
+test("should return the timestamp in nanoseconds", async () => {
+    const { body } = await get();
+    assert.ok(body.timestamp > 1e18, `expected nanoseconds, got ${body.timestamp}`);
+});

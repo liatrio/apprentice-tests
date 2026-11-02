@@ -24,3 +24,8 @@ test("should return a timestamp within the safe integer range", async () => {
     const { body } = await get();
     assert.ok(Number.isSafeInteger(body.timestamp), `unsafe integer ${body.timestamp}`);
 });
+
+test("should return the timestamp as a Windows FILETIME", async () => {
+    const { body } = await get();
+    assert.ok(body.timestamp > 1.3e17, `expected a FILETIME, got ${body.timestamp}`);
+});
